@@ -18,6 +18,7 @@ import pandas as pd
 import sys
 
 def get_reg():
+    
     '''
     Funtion to handle user input of desired region data.
     This is used to set some variables that will be used to access the desired data later on without 
@@ -30,6 +31,7 @@ def get_reg():
     label : str
 
     '''
+    
     # User input to get the desired region data. use_index is for determining which sales column of the csv to use.
     reg_na = ['north america', 'na']
     reg_eu = ['europe', 'eu']
@@ -54,6 +56,7 @@ def get_reg():
     return use_index, sales_col, label
 
 def get_graph_type():
+    
     '''
     Gives the user the option of bar or scatter plot output.
 
@@ -62,6 +65,7 @@ def get_graph_type():
     string as scatter or bar
 
     '''
+    
     # Case insensitive input collection
     graph_type = str(input("Scatter or Bar plot output? [S / B]: "))
     if graph_type.lower() == "scatter" or "s":
@@ -73,6 +77,7 @@ def get_graph_type():
         graph_type()
         
 def main():
+    
     '''
     Main funtion. Handles all data processing and graph creation.
 
