@@ -19,6 +19,19 @@ import sys
 
 def get_reg():
     
+    '''
+    Funtion to handle user input of desired region data.
+    This is used to set some variables that will be used to access the desired data later on without 
+    the need for multiple files per output graph.
+
+    Returns
+    -------
+    use_index : int
+    sales_col : str
+    label : str
+
+    '''
+    
     # User input to get the desired region data. use_index is for determining which sales column of the csv to use.
     reg_na = ['north america', 'na']
     reg_eu = ['europe', 'eu']
@@ -41,10 +54,41 @@ def get_reg():
         print("Invalid region. Try again.")
         get_reg()
     return use_index, sales_col, label
+
+def get_graph_type():
+    
+    '''
+    Gives the user the option of bar or scatter plot output.
+
+    Returns
+    -------
+    string as scatter or bar
+
+    '''
+    
+    # Case insensitive input collection
+    graph_type = str(input("Scatter or Bar plot output? [S / B]: "))
+    if graph_type.lower() == "scatter" or "s":
+        return("scatter")
+    elif graph_type.lower() == "bar" or "b":
+        return("bar")
+    else:
+        print("Invalid graph type. Try again.")
+        graph_type()
         
 def main():
+    
+    '''
+    Main funtion. Handles all data processing and graph creation.
+
+    Returns
+    -------
+    None.
+
+    '''
 
     user_inputs = get_reg()
+    graph_type = get_graph_type()
     
     # Read in the csv file. This directory is hardcoded to my local directory and will need to be adjusted for use.
     data = pd.read_csv("C:\\Users\\17606\Desktop\\131_final_dataset\\vgsales.csv")
@@ -76,7 +120,11 @@ def main():
             dict[row[2]] += row[user_inputs[0]] 
             
     # Use matplotlib to create a simple bar graph displaying the total sales of the top 5-6 platforms in the set region.
-    plt.bar(dict.keys(), dict.values(), color='b')
+    if graph_type == "scatter":    
+        plt.scatter(dict.keys(), dict.values(), color='b')
+    if graph_type == "bar":    
+        plt.bar(dict.keys(), dict.values(), color='b')
+        
     plt.title("Top Selling Gaming Platforms in " + user_inputs[2])
     plt.xlabel("Platform")
     plt.ylabel("Number of Sales (millions)")
