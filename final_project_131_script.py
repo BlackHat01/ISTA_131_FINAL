@@ -4,7 +4,7 @@ ISTA 131 Final Project Visual Code
 Group Members: Cory Shen, Beverly Perez
 ---
 This code analyzes the csv data from https://www.kaggle.com/gregorut/videogamesales 
-and visually displays (using bar graphs) the top selling platforms for each of the three main regions 
+and visually displays (using bar or scatter plots) the top selling platforms for each of the three main regions 
 the data contains: North America, Europe, and Japan.
 This interpretation of this data could serve many use cases
 such as which platform a game developer might want to develop for if they intend to release
