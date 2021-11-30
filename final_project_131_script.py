@@ -18,7 +18,18 @@ import pandas as pd
 import sys
 
 def get_reg():
-    
+    '''
+    Funtion to handle user input of desired region data.
+    This is used to set some variables that will be used to access the desired data later on without 
+    the need for multiple files per output graph.
+
+    Returns
+    -------
+    use_index : int
+    sales_col : str
+    label : str
+
+    '''
     # User input to get the desired region data. use_index is for determining which sales column of the csv to use.
     reg_na = ['north america', 'na']
     reg_eu = ['europe', 'eu']
@@ -43,6 +54,14 @@ def get_reg():
     return use_index, sales_col, label
         
 def main():
+    '''
+    Main funtion. Handles all data processing and graph creation.
+
+    Returns
+    -------
+    None.
+
+    '''
 
     user_inputs = get_reg()
     
