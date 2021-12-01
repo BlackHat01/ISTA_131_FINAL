@@ -86,6 +86,7 @@ def main():
     None.
 
     '''
+    
     # Loop to handle invalid inputs
     while True:    
         user_inputs = get_reg()
