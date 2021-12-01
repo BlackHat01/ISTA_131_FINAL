@@ -90,8 +90,8 @@ def main():
     user_inputs = get_reg()
     graph_type = get_graph_type()
     
-    # Read in the csv file. This directory is hardcoded to my local directory and will need to be adjusted for use.
-    data = pd.read_csv("C:\\Users\\17606\Desktop\\131_final_dataset\\vgsales.csv")
+    # Read in the csv file. This directory is intended to access the file from the same directory as the script.
+    data = pd.read_csv(".\\vgsales.csv")
     
     # Create a dataframe of the entire dataset and sort by appropriate regional sales.
     df = pd.DataFrame(data)
