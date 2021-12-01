@@ -52,7 +52,7 @@ def get_reg():
         label = 'Japan'
     else:
         print("Invalid region. Try again.")
-        get_reg()
+        return('')
     return use_index, sales_col, label
 
 def get_graph_type():
@@ -68,13 +68,13 @@ def get_graph_type():
     
     # Case insensitive input collection
     graph_type = str(input("Scatter or Bar plot output? [S / B]: "))
-    if graph_type.lower() == "scatter" or "s":
+    if graph_type.lower() in ["scatter", "s"]:
         return("scatter")
-    elif graph_type.lower() == "bar" or "b":
+    elif graph_type.lower() in ["bar", "b"]:
         return("bar")
     else:
         print("Invalid graph type. Try again.")
-        graph_type()
+        return('')
         
 def main():
     
@@ -86,9 +86,20 @@ def main():
     None.
 
     '''
-
-    user_inputs = get_reg()
-    graph_type = get_graph_type()
+    # Loop to handle invalid inputs
+    while True:    
+        user_inputs = get_reg()
+        if user_inputs:
+            break
+        else:
+            continue
+        
+    while True:    
+        graph_type = get_graph_type()
+        if graph_type:
+            break
+        else:
+            continue
     
     # Read in the csv file. This directory is intended to access the file from the same directory as the script.
     data = pd.read_csv(".\\vgsales.csv")
