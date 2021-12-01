@@ -17,7 +17,7 @@ def main():
 
     region_sales = ['NA_Sales', 'EU_Sales', 'JP_Sales']
     ### This is a local path for my computer, change if vgsales.csv is located elsewhere
-    data = pd.read_csv("C:\\Users\\LANBox\\Desktop\\vgsales.csv")
+    data = pd.read_csv(".\\vgsales.csv")
     ###
     df = pd.DataFrame(data)
     df.sort_values(by=region_sales, inplace=True, ascending=False)
